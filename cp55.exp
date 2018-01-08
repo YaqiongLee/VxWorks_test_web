@@ -1,0 +1,14 @@
+#!/usr/bin/expect -f
+set password 123456 
+#download
+#spawn scp yli14@128.224.167.129:/buildarea1/pzhang1/jenkinsEnvInjection/vx7_nightly_spin.config /folk/yli14/
+#spawn ssh wrsadmin@128.224.162.55 "/usr/local/nginx/html/test_report/cp.sh"
+spawn ssh wrsadmin@128.224.162.55 "/usr/local/nginx/html/nightlyReport/cp.sh"
+set timeout 300 
+expect "wrsadmin@128.224.162.55's password:"
+set timeout 300 
+send "$password\r"
+set timeout 300 
+send "exit\r"
+expect eof 
+
